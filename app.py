@@ -54,7 +54,7 @@ def upload():
             lean_file = leancloud.File(filename, StringIO(file_r.stream.read()))
             lean_file.save()
             print lean_file.id
-            print lean_file.url()
+            print lean_file.url
             #file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-            return """ {"result":"Success"}"""
+            return """ {"result":"Success","url":\""""+lean_file.url+"""\"}"""
     return """ {"result":"Failed"}"""
