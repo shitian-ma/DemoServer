@@ -1,0 +1,73 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>Welcome to access demo server!</title>
+    <link rel="stylesheet" href="/static/style.css" type="text/css">
+  </head>
+  <script type="text/javascript">
+  function getAllContext() {
+    var controls = document.getElementsByTagName('input');
+	var arr = new Array();
+    for(var i=0; i<controls.length; i++){
+      //if(controls[i].type=='text')
+       arr.push(controls[i].id + ":" + controls[i].value);
+      //}
+    }
+	document.write(arr);
+	return arr;
+  }
+  
+  function setAllContext() {
+	var arr = new Array("login_user_input:User Namexx","login_pass_input:","login_button:Login","logon_button:logon","t1b:T1_S","t2b:T2_S","t3b:T3_S","t4b:T4_S","t5b:T5_S");
+    alert(arr.length);
+	for(var i=0; i<arr.length; i++){
+	  var strings = arr[i].split(":");
+	  var id = strings[0];
+	  var value = strings[1];
+	  alert(arr[i]+" > id :"+id+" value:"+value);
+      var txt = document.getElementById(id);
+	  alert(txt);
+	  txt.value = value
+    }
+  }
+  
+  function resetAllContext(arr) {
+    alert(arr.length);
+	for(var i=0; i<arr.length; i++){
+	  var strings = arr[i].split(":");
+	  var id = strings[0];
+	  var value = strings[1];
+	  alert(arr[i]+" > id :"+id+" value:"+value);
+      var txt = document.getElementById(id);
+	  alert(txt);
+	  txt.value = value
+    }
+  }
+  
+  function submit() {
+    var controls = document.getElementsByTagName('input');
+	var arr = new Array();
+    for(var i=0; i<controls.length; i++){
+      //if(controls[i].type=='text')
+       arr.push(controls[i].id + ":" + controls[i].value+"<br/>");
+      //}
+    }
+    document.write("Submit called ! <br/>"+arr.toString());
+  }
+  
+</script>
+
+  <body>
+	<form action="/login" method="POST">
+	<a id="login_user">User name :</a><input id="login_user_input" type="text" name="user_name" value="User Name"/><br/>
+    <a id="login_pass">Password  :</a><input id="login_pass_input" type="password" name="password" placeholder="Password"/><br/>
+    <input id="login_button" type="button" value="Login" name="login" onclick="getAllContext()" /><br/>
+	<input id="logon_button" type="button" value="Logon" name="logon" onclick="setAllContext()"/><br/>
+	</form>
+	<a id="t1">T1 String :</a><input id="t1b" type="text" name="t1" value="T1_String"/><br/>
+	<a id="t2">T2 String :</a><input id="t2b" type="text" name="t2" value="T2_String"/><br/>
+	<a id="t3">T3 String :</a><input id="t3b" type="text" name="t3" value="T3_String"/><br/>
+	<a id="t4">T4 String :</a><input id="t4b" type="text" name="t4" value="T4_String"/><br/>
+	<a id="t5">T5 String :</a><input id="t5b" type="text" name="t5" value="T5_String"/><br/>
+  </body>
+</html>
