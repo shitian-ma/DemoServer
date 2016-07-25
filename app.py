@@ -26,6 +26,10 @@ def index():
 def index2():
     return render_template('index2.html')
 
+@app.route('/report')
+def report():
+    return render_template('report.html')
+
 
 @app.route('/time')
 def time():
